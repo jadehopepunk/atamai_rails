@@ -32,3 +32,12 @@ def link_from_shared_to_current(path, dest_path = path)
   dst_path = "#{release_path}/#{dest_path}"
   run "for f in `ls #{src_path}/` ; do ln -nsf #{src_path}/$f #{dst_path}/$f ; done"
 end
+
+after "deploy:update_code", "deploy:bundle_install"
+
+namespace :deploy do
+  desc "run 'bundle install' to install Bundler's packaged gems for the current deploy"
+  task :bundle_install, :roles => :app do
+    run "cd #{release_path} && bundle install --deployment"
+  end
+end
