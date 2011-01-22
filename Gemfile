@@ -6,7 +6,7 @@ gem 'rails', '3.0.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql'
-
+gem 'haml'
 gem 'devise' # Devise must be required before RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
