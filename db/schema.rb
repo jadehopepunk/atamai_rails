@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110122082255) do
+ActiveRecord::Schema.define(:version => 20110123021430) do
 
   create_table "histories", :force => true do |t|
     t.string   "message"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(:version => 20110122082255) do
   end
 
   add_index "histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
+
+  create_table "patterns", :force => true do |t|
+    t.string   "title"
+    t.text     "the_problem"
+    t.text     "how_bad_is_it"
+    t.text     "the_solutions"
+    t.text     "what_can_i_do"
+    t.text     "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
