@@ -67,3 +67,9 @@ blockquote {
   #content strong {
     font-size: 130%;
     color: #3f7ea3; }
+
+.social_media {
+  width: 800px;
+  border-top: 3px solid #666666;
+  margin: 1em auto 0 auto;
+  padding-top: 1em; }
