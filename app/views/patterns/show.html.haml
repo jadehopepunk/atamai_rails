@@ -1,0 +1,51 @@
+.advertising_disclaimer
+  Teaser for advertising disclaimer goes here...
+  %a{:href => "#"} [read more]
+.article_detail
+  %h1
+    %span>
+    = @pattern.title
+  .summary
+    = simple_format @pattern.summary
+
+  %h2
+    %span>
+    We have a problem
+
+  .the_problem
+    = simple_format @pattern.the_problem
+
+  %h2
+    %span>
+    How bad is it?
+  .how_bad_is_it
+    = simple_format @pattern.how_bad_is_it
+
+  %h2
+    %span>
+    What are the solutions?
+  .the_solutions
+    = simple_format @pattern.the_solutions
+    
+  %h2
+    %span>
+    What can I do?
+  .what_can_i_do
+    = simple_format @pattern.what_can_i_do
+    
+  %div
+    Read more about our
+    = succeed "," do
+      %strong Resilience projects
+    or jump straight to:
+  .related_article_thumbnails
+    .article.thumbnail
+      %img{:src => "./images/article_thumbnails/transport.jpg"}/
+    = succeed "," do
+      %strong Transport
+    = succeed "," do
+      %strong Liquid Fuels Reduction
+    = succeed "," do
+      %strong Fuel Crops
+    %strong Non-Petrochemical Agriculture
+

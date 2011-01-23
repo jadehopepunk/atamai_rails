@@ -1,4 +1,4 @@
-class PatternsController < ApplicationController
+class PatternsController < InheritedResources::Base
   def index
   end
 

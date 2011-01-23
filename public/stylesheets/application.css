@@ -81,7 +81,7 @@ h1 span, h2 span {
   text-align: justify;
 }
 
-.article_detail p.summary {
+.article_detail .summary {
   font-size: 130%;
   text-align: left;
 }
