@@ -40,33 +40,30 @@ blockquote {
 #content {
   background-color: white;
   padding: 20px; }
-
-h1, h2, h3 {
-  color: black;
-  position: relative; }
-
-h1 {
-  color: #db8838; }
-
-h2 {
-  margin-left: -50px; }
-
-h1 span, h2 span {
-  background: url(../images/gradient_overlay.png) repeat-y;
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%; }
-
-.article_detail {
-  width: 800px;
-  margin: 0 auto; }
-  .article_detail p {
-    text-align: justify; }
-  .article_detail .summary {
+  #content #main_box {
+    width: 400px;
+    margin: 0 auto; }
+  #content h1, #content h2, #content h3 {
+    color: black;
+    position: relative; }
+  #content h1 {
+    color: #db8838; }
+  #content h1 span, #content h2 span {
+    background: url(../images/gradient_overlay.png) repeat-y;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%; }
+  #content .article_detail {
+    width: 800px;
+    margin: 0 auto; }
+    #content .article_detail p {
+      text-align: justify; }
+    #content .article_detail .summary {
+      font-size: 130%;
+      text-align: left; }
+    #content .article_detail h2 {
+      margin-left: -50px; }
+  #content strong {
     font-size: 130%;
-    text-align: left; }
-
-strong {
-  font-size: 130%;
-  color: #3f7ea3; }
+    color: #3f7ea3; }
