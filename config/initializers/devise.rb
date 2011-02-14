@@ -139,4 +139,11 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
+  
+  case Rails.env
+  when 'production'
+    config.omniauth :facebook, "200711099944248", "4f322d3ef53c0456cd4df1273b081b9d"  
+  when 'development'
+    config.omniauth :facebook, "199033246776119", "6e587c146a4fbf5956f84b4aceae5ae8"  
+  end
 end

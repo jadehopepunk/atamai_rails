@@ -9,8 +9,8 @@ gem 'mysql'
 gem 'haml'
 gem 'inherited_resources'
 gem "friendly_id", "~> 3.2"
-gem 'omniauth'
-gem 'devise' # Devise must be required before RailsAdmin
+gem "oa-oauth", :require => "omniauth/oauth"
+gem 'devise', '1.2.rc' # Devise must be required before RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 
