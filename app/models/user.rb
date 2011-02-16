@@ -24,6 +24,6 @@ class User < ActiveRecord::Base
   end  
 
   def role_symbols
-    [:admin]
+    is_admin ? [:admin] : []
   end
 end
