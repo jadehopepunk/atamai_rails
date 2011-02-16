@@ -41,6 +41,7 @@ GEM
     babosa (0.2.1)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    declarative_authorization (0.5.2)
     devise (1.2.rc)
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.2)
@@ -114,6 +115,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  declarative_authorization
   devise (= 1.2.rc)
   friendly_id (~> 3.2)
   haml
