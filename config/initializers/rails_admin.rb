@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-  config.model 'Pattern' do
+  config.model 'Challenge' do
     list do
       field :title
     end
