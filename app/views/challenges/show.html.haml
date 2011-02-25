@@ -1,37 +1,37 @@
 .advertising_disclaimer
   Teaser for advertising disclaimer goes here...
   %a{:href => "#"} [read more]
-.article_detail
+.article_detail.challenge_detail
   %h1
     %span>
-    = @pattern.title
+    = @challenge.title
   .summary
-    = @pattern.summary.to_s.html_safe
+    = @challenge.summary.to_s.html_safe
 
   %h2
     %span>
     We have a problem
 
   .the_problem
-    = @pattern.the_problem.to_s.html_safe
+    = @challenge.the_problem.to_s.html_safe
 
   %h2
     %span>
     How bad is it?
   .how_bad_is_it
-    = @pattern.how_bad_is_it.to_s.html_safe
+    = @challenge.how_bad_is_it.to_s.html_safe
 
   %h2
     %span>
     What are the solutions?
   .the_solutions
-    = @pattern.the_solutions.to_s.html_safe
+    = @challenge.the_solutions.to_s.html_safe
     
   %h2
     %span>
     What can I do?
   .what_can_i_do
-    = @pattern.what_can_i_do.to_s.html_safe
+    = @challenge.what_can_i_do.to_s.html_safe
     
   %div
     Read more about our
