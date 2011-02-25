@@ -1,53 +1,58 @@
-.advertising_disclaimer
-  Teaser for advertising disclaimer goes here...
-  %a{:href => "#"} [read more]
-.article_detail.challenge_detail
-  %h1
-    %span>
-    = @challenge.title
-  .summary
-    = @challenge.summary.to_s.html_safe
+.challenge_page
+  .sidebar
+    .challenge_logos
+      = challenge_logo
+    .advertising_disclaimer
+      %p
+        Teaser for advertising disclaimer goes here...
+        %a{:href => "#"} [read more]
+  .article_detail
+    %h1
+      %span>
+      = @challenge.title
+    .summary
+      = @challenge.summary.to_s.html_safe
 
-  %h2
-    %span>
-    We have a problem
+    %h2
+      %span>
+      We have a problem
 
-  .the_problem
-    = @challenge.the_problem.to_s.html_safe
+    .the_problem
+      = @challenge.the_problem.to_s.html_safe
 
-  %h2
-    %span>
-    How bad is it?
-  .how_bad_is_it
-    = @challenge.how_bad_is_it.to_s.html_safe
+    %h2
+      %span>
+      How bad is it?
+    .how_bad_is_it
+      = @challenge.how_bad_is_it.to_s.html_safe
 
-  %h2
-    %span>
-    What are the solutions?
-  .the_solutions
-    = @challenge.the_solutions.to_s.html_safe
+    %h2
+      %span>
+      What are the solutions?
+    .the_solutions
+      = @challenge.the_solutions.to_s.html_safe
     
-  %h2
-    %span>
-    What can I do?
-  .what_can_i_do
-    = @challenge.what_can_i_do.to_s.html_safe
+    %h2
+      %span>
+      What can I do?
+    .what_can_i_do
+      = @challenge.what_can_i_do.to_s.html_safe
     
-  %div
-    Read more about our
-    = succeed "," do
-      %strong Resilience projects
-    or jump straight to:
-  .related_article_thumbnails
-    .article.thumbnail
-      %img{:src => "./images/article_thumbnails/transport.jpg"}/
-    = succeed "," do
-      %strong Transport
-    = succeed "," do
-      %strong Liquid Fuels Reduction
-    = succeed "," do
-      %strong Fuel Crops
-    %strong Non-Petrochemical Agriculture
+    %div
+      Read more about our
+      = succeed "," do
+        %strong Resilience projects
+      or jump straight to:
+    .related_article_thumbnails
+      .article.thumbnail
+        %img{:src => "./images/article_thumbnails/transport.jpg"}/
+      = succeed "," do
+        %strong Transport
+      = succeed "," do
+        %strong Liquid Fuels Reduction
+      = succeed "," do
+        %strong Fuel Crops
+      %strong Non-Petrochemical Agriculture
 
-.social_media  
-  = facebook_like
+  .social_media  
+    = facebook_like
