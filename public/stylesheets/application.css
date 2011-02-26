@@ -5,6 +5,9 @@ body {
   font: 110%/1.45 Helvetica, Arial, Verdana, sans-serif;
   color: #333333; }
 
+a img {
+  border: none; }
+
 blockquote {
   font-size: 150%;
   color: black;
@@ -83,3 +86,15 @@ blockquote.pullquote, .challenge_page blockquote {
 
 .challenge_logos {
   margin_bottom: 1em; }
+
+.home .challenges {
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  display: inline-block;
+  width: 420px; }
+  .home .challenges {
+    display: block; }
+  .home .challenges .challenge {
+    float: left;
+    width: 200px;
+    margin: 5px; }

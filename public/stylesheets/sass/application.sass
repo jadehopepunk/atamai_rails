@@ -1,9 +1,19 @@
+=clearfix
+  :overflow auto
+  :overflow -moz-scrollbars-none
+  :display inline-block
+  &
+    :display block
+
 body
   padding: 0
   margin: 0
   background-color: #ACC489
   font: 110% / 1.45 Helvetica, Arial, Verdana, sans-serif
   color: #333
+  
+a img
+  border: none
 
 blockquote
   font-size: 150%
@@ -94,3 +104,13 @@ blockquote.pullquote, .challenge_page blockquote
 
 .challenge_logos
   margin_bottom: 1em
+  
+.home
+  .challenges
+    +clearfix
+    width: 420px
+
+    .challenge
+      float: left
+      width: 200px
+      margin: 5px

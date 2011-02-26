@@ -1,0 +1,6 @@
+.home
+  .challenges
+    - @challenges.each do |challenge|
+      .challenge
+        = challenge_logo_link(challenge)
+        = challenge.short_title
