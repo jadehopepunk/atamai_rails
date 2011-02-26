@@ -1,5 +1,4 @@
 class Challenge < ActiveRecord::Base
-  has_attached_file :image
   has_friendly_id :short_title, :use_slug => true
 
   has_many :article_illustrations, :foreign_key => :article_id

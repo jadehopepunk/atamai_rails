@@ -15,6 +15,15 @@ RailsAdmin.config do |config|
       end
     end
   end
+  
+  # config.model 'Illustration' do
+  #   list do
+  #     field :image_file_name
+  #   end
+  #   edit do
+  #     field :image
+  #   end
+  # end
 end
 
 require "rails_admin/application_controller"
