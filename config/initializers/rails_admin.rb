@@ -7,6 +7,7 @@ RailsAdmin.config do |config|
     edit do
       field :short_title, :string
       field :title, :string
+      field :illustrations
       [:summary, :the_problem, :how_bad_is_it, :the_solutions, :what_can_i_do].each do |name|
         field name, :text do
           ckeditor true

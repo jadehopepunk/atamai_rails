@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110225091513) do
+ActiveRecord::Schema.define(:version => 20110226084208) do
+
+  create_table "article_illustrations", :force => true do |t|
+    t.integer "article_id"
+    t.string  "article_type"
+    t.integer "illustration_id"
+  end
+
+  add_index "article_illustrations", ["illustration_id"], :name => "article_illustrations_illustration_id_fk"
 
   create_table "challenges", :force => true do |t|
     t.string   "title"
@@ -22,6 +30,10 @@ ActiveRecord::Schema.define(:version => 20110225091513) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "short_title"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "histories", :force => true do |t|
@@ -36,6 +48,14 @@ ActiveRecord::Schema.define(:version => 20110225091513) do
   end
 
   add_index "histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
+
+  create_table "illustrations", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
@@ -68,5 +88,7 @@ ActiveRecord::Schema.define(:version => 20110225091513) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  add_foreign_key "article_illustrations", "illustrations", :name => "article_illustrations_illustration_id_fk"
 
 end
