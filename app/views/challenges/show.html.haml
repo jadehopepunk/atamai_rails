@@ -2,10 +2,11 @@
   .sidebar
     .challenge_logos
       = challenge_logo(@challenge)
-    .advertising_disclaimer
+    .advertising_disclaimer.article_teaser
       %p
-        Teaser for advertising disclaimer goes here...
-        %a{:href => "#"} [read more]
+        We believe that it's more important to openly share our vision for sustainable living than it is to convince 
+        people to join our particular village. Read more about our
+        = link_to("advertising policy", article_path('advertising-guidelines')) + '.'
   .article_detail
     %h1
       %span>

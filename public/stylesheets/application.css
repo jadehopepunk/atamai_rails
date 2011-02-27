@@ -64,6 +64,8 @@ blockquote.pullquote, .challenge_page blockquote {
   #content .sidebar {
     width: 210px;
     float: left; }
+    #content .sidebar .article_teaser {
+      font-size: 80%; }
   #content .article_detail {
     width: 800px;
     margin-left: 260px; }

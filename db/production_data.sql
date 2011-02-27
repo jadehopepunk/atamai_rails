@@ -16,6 +16,56 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `article_illustrations`
+--
+
+DROP TABLE IF EXISTS `article_illustrations`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `article_illustrations` (
+  `id` int(11) NOT NULL auto_increment,
+  `article_id` int(11) default NULL,
+  `article_type` varchar(255) default NULL,
+  `illustration_id` int(11) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `article_illustrations_illustration_id_fk` (`illustration_id`),
+  CONSTRAINT `article_illustrations_illustration_id_fk` FOREIGN KEY (`illustration_id`) REFERENCES `illustrations` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `article_illustrations`
+--
+
+/*!40000 ALTER TABLE `article_illustrations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article_illustrations` ENABLE KEYS */;
+
+--
+-- Table structure for table `articles`
+--
+
+DROP TABLE IF EXISTS `articles`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `articles` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) default NULL,
+  `body` text,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `articles`
+--
+
+/*!40000 ALTER TABLE `articles` DISABLE KEYS */;
+INSERT INTO `articles` VALUES (1,'Advertising Guidelines','This web page is part of the Atamai Village \'Marketing Campaign\' started in early 2011. Atamai Village has been in development since 2006 and since then to the start of the marketing campaign 15 of the approximately 50 properties ultimately available for purchase in the village have already sold without any marketing effort.\r\n\r\nWith the marketing starting now we expect all the properties to be sold before the end this 2011.\r\n\r\nAtamai follows ethical business principles in its commercial activities. True to our philosophy we are not pushing a particular â€˜productâ€™ in the form of a turn-key theme park lifestyle dressed up for a target clientele in a flash prospectus. Atamai is a dynamic village â€˜in developmentâ€™ for the next 400 years at least. Its features and character and characteristics will to a large degree depend on the quality of the community coming together in the village and thriving there.\r\n\r\nOur marketing campaign is not an attempt to convince of a need you are not aware of. If you need convincing about the urgent requirement for a resilient, safe, sane and meaningful living arrangement to face our future you should not consider being part of Atamai.\r\n\r\nAlthough there are many more aspects to our project our marketing campaign focuses on four topical issues facing humanity\r\n\r\nPeak Oil\r\nClimate Change\r\nFood Security\r\nEconomic Collapse\r\n\r\nWe believe it is likely that people aware of one of these factors are also aware of the others and their manifold links and system interdependencies. We have no interest in convincing you of the critical relevance of any of these issues. Our summaries of these issues are not in any way meant to be exhaustive or complete but indicate our reasons for implementing Atamai with its core feature of resilience.\r\n\r\nA property in Atamai provides a safe base to respond to and work on these issues that is looking towards a measured, rational and pro-active stance to deal with a future largely influenced by these vectors. At its heart Atamai delivers community powered resilience based on a sufficient resource base in common ownership and control.\r\n\r\nAtamai Village is one of very few open projects of similar ambition and scope in the world that is far enough through the implementation process to have a chance at succeeding before the already ongoing and accelerating loss of options reduces the viability of projects on this scale.\r\n\r\nOur advertising campaigns objective is simply to inform those that are aware of humanities challenges of the real life and readily available option to become part of Atamai.\r\n\r\nAtamai offers a limited number (due to New Zealand policies) of overseas parties an opportunity of packaging a living arrangement with genuine business opportunities meeting migrant criteria of the NZ government.','2011-02-27 00:56:32','2011-02-27 00:57:09');
+/*!40000 ALTER TABLE `articles` ENABLE KEYS */;
+
+--
 -- Table structure for table `challenges`
 --
 
@@ -46,13 +96,40 @@ INSERT INTO `challenges` VALUES (1,'Peak Oil and Atamai Ecovillage','<blockquote
 /*!40000 ALTER TABLE `challenges` ENABLE KEYS */;
 
 --
--- Table structure for table `histories`
+-- Table structure for table `illustrations`
 --
 
-DROP TABLE IF EXISTS `histories`;
+DROP TABLE IF EXISTS `illustrations`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
-CREATE TABLE `histories` (
+CREATE TABLE `illustrations` (
+  `id` int(11) NOT NULL auto_increment,
+  `image_file_name` varchar(255) default NULL,
+  `image_content_type` varchar(255) default NULL,
+  `image_file_size` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `caption` varchar(255) default NULL,
+  `image_updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `illustrations`
+--
+
+/*!40000 ALTER TABLE `illustrations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `illustrations` ENABLE KEYS */;
+
+--
+-- Table structure for table `rails_admin_histories`
+--
+
+DROP TABLE IF EXISTS `rails_admin_histories`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `rails_admin_histories` (
   `id` int(11) NOT NULL auto_increment,
   `message` varchar(255) default NULL,
   `username` varchar(255) default NULL,
@@ -64,16 +141,16 @@ CREATE TABLE `histories` (
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_histories_on_item_and_table_and_month_and_year` (`item`,`table`,`month`,`year`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
--- Dumping data for table `histories`
+-- Dumping data for table `rails_admin_histories`
 --
 
-/*!40000 ALTER TABLE `histories` DISABLE KEYS */;
-INSERT INTO `histories` VALUES (1,'Created User #2','craig@craigambrose.com',2,'User',1,2011,'2011-01-23 21:07:40','2011-01-23 21:07:40'),(2,'Created Peak Oil and Atamai Ecovillage','craig@craigambrose.com',1,'Challenge',2,2011,'2011-02-25 08:34:54','2011-02-25 08:34:54'),(3,'Added Slugs #2 associations, Changed short_title','craig@craigambrose.com',1,'Challenge',2,2011,'2011-02-25 09:45:09','2011-02-25 09:45:09'),(4,'Created Food Security and Atamai EcoVillage','craig@craigambrose.com',2,'Challenge',2,2011,'2011-02-26 02:36:04','2011-02-26 02:36:04'),(5,'Created Economic Security and Atamai EcoVillage','craig@craigambrose.com',3,'Challenge',2,2011,'2011-02-26 03:34:08','2011-02-26 03:34:08'),(6,'Created Climate Change and Atamai EcoVillage','craig@craigambrose.com',4,'Challenge',2,2011,'2011-02-26 06:43:00','2011-02-26 06:43:00');
-/*!40000 ALTER TABLE `histories` ENABLE KEYS */;
+/*!40000 ALTER TABLE `rails_admin_histories` DISABLE KEYS */;
+INSERT INTO `rails_admin_histories` VALUES (1,'Created User #2','craig@craigambrose.com',2,'User',1,2011,'2011-01-23 21:07:40','2011-01-23 21:07:40'),(2,'Created Peak Oil and Atamai Ecovillage','craig@craigambrose.com',1,'Challenge',2,2011,'2011-02-25 08:34:54','2011-02-25 08:34:54'),(3,'Added Slugs #2 associations, Changed short_title','craig@craigambrose.com',1,'Challenge',2,2011,'2011-02-25 09:45:09','2011-02-25 09:45:09'),(4,'Created Food Security and Atamai EcoVillage','craig@craigambrose.com',2,'Challenge',2,2011,'2011-02-26 02:36:04','2011-02-26 02:36:04'),(5,'Created Economic Security and Atamai EcoVillage','craig@craigambrose.com',3,'Challenge',2,2011,'2011-02-26 03:34:08','2011-02-26 03:34:08'),(6,'Created Climate Change and Atamai EcoVillage','craig@craigambrose.com',4,'Challenge',2,2011,'2011-02-26 06:43:00','2011-02-26 06:43:00'),(7,'Created Advertising Guidelines','craig@craigambrose.com',1,'Article',2,2011,'2011-02-27 00:56:32','2011-02-27 00:56:32'),(8,'Changed body','craig@craigambrose.com',1,'Article',2,2011,'2011-02-27 00:57:10','2011-02-27 00:57:10');
+/*!40000 ALTER TABLE `rails_admin_histories` ENABLE KEYS */;
 
 --
 -- Table structure for table `schema_migrations`
@@ -93,7 +170,7 @@ SET character_set_client = @saved_cs_client;
 --
 
 /*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
-INSERT INTO `schema_migrations` VALUES ('20110122082254'),('20110122082255'),('20110123021430'),('20110123023656'),('20110216082552'),('20110224090218'),('20110225091513');
+INSERT INTO `schema_migrations` VALUES ('20110122082254'),('20110122082255'),('20110123021430'),('20110123023656'),('20110216082552'),('20110224090218'),('20110225091513'),('20110226083832'),('20110226084208'),('20110226093820'),('20110226095512'),('20110227002451'),('20110227003916');
 /*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
 
 --
@@ -114,7 +191,7 @@ CREATE TABLE `slugs` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_slugs_on_n_s_s_and_s` (`name`,`sluggable_type`,`sequence`,`scope`),
   KEY `index_slugs_on_sluggable_id` (`sluggable_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -122,7 +199,7 @@ SET character_set_client = @saved_cs_client;
 --
 
 /*!40000 ALTER TABLE `slugs` DISABLE KEYS */;
-INSERT INTO `slugs` VALUES (1,'peak-oil-and-atamai-ecovillage',1,1,'Challenge',NULL,'2011-02-25 08:34:54'),(2,'peak-oil',1,1,'Challenge',NULL,'2011-02-25 09:45:09'),(3,'food-security',2,1,'Challenge',NULL,'2011-02-26 02:36:04'),(4,'economic-security',3,1,'Challenge',NULL,'2011-02-26 03:34:08'),(5,'climate-change',4,1,'Challenge',NULL,'2011-02-26 06:43:00');
+INSERT INTO `slugs` VALUES (1,'peak-oil-and-atamai-ecovillage',1,1,'Challenge',NULL,'2011-02-25 08:34:54'),(2,'peak-oil',1,1,'Challenge',NULL,'2011-02-25 09:45:09'),(3,'food-security',2,1,'Challenge',NULL,'2011-02-26 02:36:04'),(4,'economic-security',3,1,'Challenge',NULL,'2011-02-26 03:34:08'),(5,'climate-change',4,1,'Challenge',NULL,'2011-02-26 06:43:00'),(6,'advertising-guidelines',1,1,'Article',NULL,'2011-02-27 00:56:32');
 /*!40000 ALTER TABLE `slugs` ENABLE KEYS */;
 
 --
@@ -159,8 +236,45 @@ SET character_set_client = @saved_cs_client;
 --
 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'craig@craigambrose.com','$2a$10$AzT4lUvdfDrSpBZTUvwkLeG.Bfjq7Sc0k..li7WS1WoDtnjo.W2S2','$2a$10$AzT4lUvdfDrSpBZTUvwkLe',NULL,'11sNcqcvjhRDQKKZtPf93VjeVOYE5FxZOamlwGpyqHUPyPTxu1tF6TH498Uz','2011-02-25 08:13:34',6,'2011-02-26 02:20:48','2011-02-25 08:13:34','111.69.244.16','111.69.244.16','2011-01-22 23:32:34','2011-02-26 02:20:48',1),(2,'jsantab5@gmail.com','$2a$10$A5PGW6WmZTfy0b6XjMv3.OIX9.Knh2JHlmmCQQO7s6/SUjdXyBT4.','$2a$10$A5PGW6WmZTfy0b6XjMv3.O',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,'2011-01-23 21:07:39','2011-01-23 21:07:39',1);
+INSERT INTO `users` VALUES (1,'craig@craigambrose.com','$2a$10$AzT4lUvdfDrSpBZTUvwkLeG.Bfjq7Sc0k..li7WS1WoDtnjo.W2S2','$2a$10$AzT4lUvdfDrSpBZTUvwkLe',NULL,'11sNcqcvjhRDQKKZtPf93VjeVOYE5FxZOamlwGpyqHUPyPTxu1tF6TH498Uz','2011-02-25 08:13:34',7,'2011-02-27 00:51:29','2011-02-26 02:20:48','111.69.244.16','111.69.244.16','2011-01-22 23:32:34','2011-02-27 00:51:29',1),(2,'jsantab5@gmail.com','$2a$10$A5PGW6WmZTfy0b6XjMv3.OIX9.Knh2JHlmmCQQO7s6/SUjdXyBT4.','$2a$10$A5PGW6WmZTfy0b6XjMv3.O',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,'2011-01-23 21:07:39','2011-01-23 21:07:39',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+--
+-- Table structure for table `versions`
+--
+
+DROP TABLE IF EXISTS `versions`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `versions` (
+  `id` int(11) NOT NULL auto_increment,
+  `versioned_id` int(11) default NULL,
+  `versioned_type` varchar(255) default NULL,
+  `user_id` int(11) default NULL,
+  `user_type` varchar(255) default NULL,
+  `user_name` varchar(255) default NULL,
+  `modifications` text,
+  `number` int(11) default NULL,
+  `reverted_from` int(11) default NULL,
+  `tag` varchar(255) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_versions_on_versioned_id_and_versioned_type` (`versioned_id`,`versioned_type`),
+  KEY `index_versions_on_user_id_and_user_type` (`user_id`,`user_type`),
+  KEY `index_versions_on_user_name` (`user_name`),
+  KEY `index_versions_on_number` (`number`),
+  KEY `index_versions_on_tag` (`tag`),
+  KEY `index_versions_on_created_at` (`created_at`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `versions`
+--
+
+/*!40000 ALTER TABLE `versions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `versions` ENABLE KEYS */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -171,4 +285,4 @@ INSERT INTO `users` VALUES (1,'craig@craigambrose.com','$2a$10$AzT4lUvdfDrSpBZTU
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-02-26  6:46:14
+-- Dump completed on 2011-02-27  1:09:46

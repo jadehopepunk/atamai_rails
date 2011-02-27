@@ -1,0 +1,11 @@
+.article_page
+  .sidebar
+  .article_detail
+    %h1
+      %span>
+      = @article.title
+
+    = @article.body.to_s.html_safe
+
+  .social_media  
+    = facebook_like

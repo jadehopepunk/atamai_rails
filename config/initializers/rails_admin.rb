@@ -6,16 +6,17 @@ RailsAdmin.config do |config|
       field :title
       field :to_param
       field :created_at
+      field :updated_at
     end
     edit do
       field :short_title, :string
       field :title, :string
-      field :illustrations
       [:summary, :the_problem, :how_bad_is_it, :the_solutions, :what_can_i_do].each do |name|
         field name, :text do
           ckeditor true
         end
       end
+      field :illustrations
     end
   end
 
@@ -24,6 +25,22 @@ RailsAdmin.config do |config|
       field :caption
       field :image_file_name
       field :created_at
+    end
+  end
+  
+  config.model Article do
+    list do
+      field :title
+      field :to_param
+      field :created_at
+      field :updated_at
+    end
+    edit do
+      field :title
+      field :body do
+        ckeditor true
+      end
+      field :illustrations
     end
   end
 end
