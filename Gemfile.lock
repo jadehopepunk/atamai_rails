@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/adamcooper/vestal_versions
+  revision: 6273df533f85014062e346cb1807b0531a809ee2
+  specs:
+    vestal_versions (1.2.2)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
+GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: 59b7f78e8094d5352c9075af0de6ffe36a464c4b
   specs:
@@ -127,6 +135,7 @@ DEPENDENCIES
   inherited_resources
   mysql
   oa-oauth
-  paperclip (= 2.3.8)
+  paperclip
   rails (= 3.0.3)
   rails_admin!
+  vestal_versions!

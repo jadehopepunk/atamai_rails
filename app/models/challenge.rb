@@ -1,4 +1,5 @@
 class Challenge < ActiveRecord::Base
+  versioned
   has_friendly_id :short_title, :use_slug => true
 
   has_many :article_illustrations, :foreign_key => :article_id

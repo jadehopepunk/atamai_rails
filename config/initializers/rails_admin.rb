@@ -1,8 +1,11 @@
 RailsAdmin.config do |config|
-  config.model 'Challenge' do
+  config.excluded_models += [Slug, ArticleIllustration]
+  
+  config.model Challenge do
     list do
       field :title
       field :to_param
+      field :created_at
     end
     edit do
       field :short_title, :string
@@ -15,15 +18,14 @@ RailsAdmin.config do |config|
       end
     end
   end
-  
-  # config.model 'Illustration' do
-  #   list do
-  #     field :image_file_name
-  #   end
-  #   edit do
-  #     field :image
-  #   end
-  # end
+
+  config.model Illustration do
+    list do
+      field :caption
+      field :image_file_name
+      field :created_at
+    end
+  end
 end
 
 require "rails_admin/application_controller"
