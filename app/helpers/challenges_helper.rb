@@ -1,4 +1,10 @@
 module ChallengesHelper
+  def challenges_logo_set(challenges)
+    challenges.map do |challenge|
+      challenge_logo_link(challenge)
+    end.join(' ')
+  end
+  
   def challenge_logo_link(challenge, image_options = {})
     link_to challenge_logo(challenge, image_options), challenge_path(challenge), :title => challenge.short_title, :alt => challenge.short_title
   end
