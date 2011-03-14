@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-  config.excluded_models += [Slug, ArticleIllustration]
+  config.excluded_models += [Slug, ArticleIllustration, PageChallenge]
   
   config.model Challenge do
     list do
@@ -58,7 +58,8 @@ RailsAdmin.config do |config|
         field name, :text do
           ckeditor true
         end
- 	  end
+ 	    end
+ 	    field :challenges
   	end
   end
 end

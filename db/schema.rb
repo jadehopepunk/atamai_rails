@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110314060004) do
+ActiveRecord::Schema.define(:version => 20110314083755) do
 
   create_table "article_illustrations", :force => true do |t|
     t.integer "article_id"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(:version => 20110314060004) do
     t.datetime "updated_at"
     t.string   "caption"
     t.datetime "image_updated_at"
+  end
+
+  create_table "page_challenges", :force => true do |t|
+    t.integer "source_page_id"
+    t.string  "source_page_type"
+    t.integer "challenge_id"
   end
 
   create_table "patterns", :force => true do |t|
