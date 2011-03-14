@@ -43,6 +43,24 @@ RailsAdmin.config do |config|
       field :illustrations
     end
   end
+  
+  config.model Pattern do
+    list do
+      field :title
+      field :to_param
+      field :created_at
+      field :updated_at
+    end
+  	edit do
+  	  field :short_title, :string
+  	  field :title, :string
+  	  [:summary, :challenge, :solution, :current_status].each do |name|
+        field name, :text do
+          ckeditor true
+        end
+ 	  end
+  	end
+  end
 end
 
 require "rails_admin/application_controller"

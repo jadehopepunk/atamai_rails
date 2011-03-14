@@ -10,15 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110227003916) do
+ActiveRecord::Schema.define(:version => 20110314060004) do
 
   create_table "article_illustrations", :force => true do |t|
     t.integer "article_id"
     t.string  "article_type"
     t.integer "illustration_id"
   end
-
-  add_index "article_illustrations", ["illustration_id"], :name => "article_illustrations_illustration_id_fk"
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -37,10 +35,6 @@ ActiveRecord::Schema.define(:version => 20110227003916) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "short_title"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   create_table "illustrations", :force => true do |t|
@@ -53,13 +47,24 @@ ActiveRecord::Schema.define(:version => 20110227003916) do
     t.datetime "image_updated_at"
   end
 
+  create_table "patterns", :force => true do |t|
+    t.string   "title"
+    t.string   "short_title"
+    t.text     "summary"
+    t.text     "challenge"
+    t.text     "solution"
+    t.text     "current_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
     t.string   "username"
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
+    t.integer  "year",       :limit => 5
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,7 +86,6 @@ ActiveRecord::Schema.define(:version => 20110227003916) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -118,7 +122,5 @@ ActiveRecord::Schema.define(:version => 20110227003916) do
   add_index "versions", ["user_id", "user_type"], :name => "index_versions_on_user_id_and_user_type"
   add_index "versions", ["user_name"], :name => "index_versions_on_user_name"
   add_index "versions", ["versioned_id", "versioned_type"], :name => "index_versions_on_versioned_id_and_versioned_type"
-
-  add_foreign_key "article_illustrations", "illustrations", :name => "article_illustrations_illustration_id_fk"
 
 end

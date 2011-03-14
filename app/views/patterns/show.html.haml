@@ -1,0 +1,53 @@
+.challenge_page
+  .sidebar
+    .challenge_logos
+      =# challenge_logo(@challenge)
+    .advertising_disclaimer.article_teaser
+      %p
+        We believe that it's more important to openly share our vision for sustainable living than it is to convince 
+        people to join our particular village. Read more about our
+        = link_to("advertising policy", article_path('advertising-guidelines')) + '.'
+  .article_detail
+    %h1
+      %span>
+      = @pattern.title
+    .summary
+      = @pattern.summary.to_s.html_safe
+
+    %h2
+      %span>
+      The Challenge
+
+    .the_challenge
+      = @pattern.challenge.to_s.html_safe
+
+    %h2
+      %span>
+      Our Solutions
+    .solution
+      = @pattern.solution.to_s.html_safe
+
+    %h2
+      %span>
+      Current Status
+    .current_status
+      = @pattern.current_status.to_s.html_safe
+    
+    %div
+      Read more about our
+      = succeed "," do
+        %strong Resilience projects
+      or jump straight to:
+    .related_article_thumbnails
+      .article.thumbnail
+        %img{:src => "./images/article_thumbnails/transport.jpg"}/
+      = succeed "," do
+        %strong Transport
+      = succeed "," do
+        %strong Liquid Fuels Reduction
+      = succeed "," do
+        %strong Fuel Crops
+      %strong Non-Petrochemical Agriculture
+
+  .social_media  
+    = facebook_like
